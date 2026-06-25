@@ -26,3 +26,7 @@ brew install ssh-deploy
 - `ssh-deploy`'s fuzzy host picker uses [`fzf`](https://github.com/junegunn/fzf);
   install it (`brew install fzf`) for the richer picker, otherwise a numbered-menu
   fallback is used.
+
+## License
+
+MIT © BrainInBlack — see [LICENSE](LICENSE).
