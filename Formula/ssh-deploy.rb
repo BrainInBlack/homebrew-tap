@@ -1,8 +1,8 @@
 class SshDeploy < Formula
   desc "Push a local script to an SSH host and run it there as root"
   homepage "https://github.com/BrainInBlack/ssh-deploy"
-  url "https://github.com/BrainInBlack/ssh-deploy/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "09a634d866694cf304c200ee2d1c913ffa37d9f1f9b2da0b5bf4fdf0ab08b185"
+  url "https://github.com/BrainInBlack/ssh-deploy/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "024c8995094e39787e98d2da7e6e6a31136b0d9ea443dbcbb88e51599d7c6755"
   license "MIT"
   head "https://github.com/BrainInBlack/ssh-deploy.git", branch: "main"
 
@@ -13,6 +13,7 @@ class SshDeploy < Formula
 
   def install
     bin.install "ssh-deploy"
+    man1.install "ssh-deploy.1"
   end
 
   def caveats
@@ -25,5 +26,6 @@ class SshDeploy < Formula
 
   test do
     assert_match "ssh-deploy #{version}", shell_output("#{bin}/ssh-deploy --version")
+    assert_path_exists man1/"ssh-deploy.1"
   end
 end
