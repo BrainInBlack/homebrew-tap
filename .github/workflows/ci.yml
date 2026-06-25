@@ -1,11 +1,11 @@
 name: CI
 
+# Runs on GitHub Actions.
 on:
   push:
-    branches:
-      - main
   pull_request:
 
+# Least privilege: this workflow only reads the repo to lint and test it.
 permissions:
   contents: read
 

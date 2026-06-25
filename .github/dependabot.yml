@@ -2,6 +2,8 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     directory: "/"
+    # Bumps flow through the develop integration branch, not straight to main.
+    target-branch: "develop"
     schedule:
       interval: weekly
     commit-message:
