@@ -1,8 +1,8 @@
 class SshDeploy < Formula
   desc "Push a local script to an SSH host and run it there as root"
   homepage "https://github.com/BrainInBlack/ssh-deploy"
-  url "https://github.com/BrainInBlack/ssh-deploy/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "024c8995094e39787e98d2da7e6e6a31136b0d9ea443dbcbb88e51599d7c6755"
+  url "https://github.com/BrainInBlack/ssh-deploy/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "c0d21691cf147e548e305c79eae1a75967c078dd352f78862628efeec2eed06b"
   license "MIT"
   head "https://github.com/BrainInBlack/ssh-deploy.git", branch: "main"
 
