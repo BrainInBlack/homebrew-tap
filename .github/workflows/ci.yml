@@ -49,3 +49,21 @@ jobs:
         with:
           name: bottles_${{ matrix.os }}
           path: '*.bottle.*'
+
+  # Single stable gate that branch protection requires - not the concrete
+  # test (os) matrix names, so the matrix can change without breaking the
+  # required check on main. (No fork-guard here: unlike ssh-deploy, this repo's
+  # pull_request run does more than its push run - only PRs run --only-formulae
+  # and upload bottles - so same-repo PRs are not redundant and must still build.)
+  ci-success:
+    needs: [test]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify the test job succeeded
+        run: |
+          result="${{ needs.test.result }}"
+          if [ "$result" != "success" ] && [ "$result" != "skipped" ]; then
+            echo "::error::test job did not succeed (result: $result)"
+            exit 1
+          fi
